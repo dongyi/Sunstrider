@@ -1,0 +1,20 @@
+version: "3.7"
+services:
+  redis:
+    image: redis:latest
+    container_name: sun-redis
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:6379:6379"
+
+  postgres:
+    image: postgres:latest
+    container_name: sun-db
+    environment:
+      - POSTGRES_USER=sunstrider
+      - POSTGRES_PASSWORD=qwe123
+      - POSTGRES_DB=sunstrider
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:5432:5432"
+
